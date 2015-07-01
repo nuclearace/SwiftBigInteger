@@ -28,7 +28,15 @@ struct SwiftBigInteger: CustomStringConvertible, Equatable, Comparable {
     init(int:Int) {
         internalInt = JKBigInteger(string: String(int))
     }
-    
+}
+
+extension SwiftBigInteger {
+    func compare(rhs:SwiftBigInteger) -> NSComparisonResult {
+        return internalInt.compare(rhs.internalInt)
+    }
+}
+
+extension SwiftBigInteger {
     func add(rhs:SwiftBigInteger) -> SwiftBigInteger {
         let new = internalInt.add(rhs.internalInt) as! JKBigInteger
         
@@ -52,7 +60,9 @@ struct SwiftBigInteger: CustomStringConvertible, Equatable, Comparable {
         
         return SwiftBigInteger(jkInteger: new)
     }
-    
+}
+
+extension SwiftBigInteger {
     func add(rhs:Int) -> SwiftBigInteger {
         let new = internalInt.add(JKBigInteger(string: String(rhs))) as! JKBigInteger
         
@@ -75,9 +85,5 @@ struct SwiftBigInteger: CustomStringConvertible, Equatable, Comparable {
         let new = internalInt.subtract(JKBigInteger(string: String(rhs))) as! JKBigInteger
         
         return SwiftBigInteger(jkInteger: new)
-    }
-    
-    func compare(rhs:SwiftBigInteger) -> NSComparisonResult {
-        return internalInt.compare(rhs.internalInt)
     }
 }
