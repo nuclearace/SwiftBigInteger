@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		744916581B442E4100D37FBE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744916571B442E4100D37FBE /* main.swift */; };
+		744916751B442EEC00D37FBE /* JKBigDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449166D1B442EEC00D37FBE /* JKBigDecimal.m */; };
+		744916761B442EEC00D37FBE /* JKBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449166F1B442EEC00D37FBE /* JKBigInteger.m */; };
+		744916771B442EEC00D37FBE /* tommath.c in Sources */ = {isa = PBXBuildFile; fileRef = 744916711B442EEC00D37FBE /* tommath.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,14 @@
 /* Begin PBXFileReference section */
 		744916541B442E4100D37FBE /* SwiftBigInt */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftBigInt; sourceTree = BUILT_PRODUCTS_DIR; };
 		744916571B442E4100D37FBE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7449166C1B442EEC00D37FBE /* JKBigDecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKBigDecimal.h; sourceTree = "<group>"; };
+		7449166D1B442EEC00D37FBE /* JKBigDecimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKBigDecimal.m; sourceTree = "<group>"; };
+		7449166E1B442EEC00D37FBE /* JKBigInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKBigInteger.h; sourceTree = "<group>"; };
+		7449166F1B442EEC00D37FBE /* JKBigInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKBigInteger.m; sourceTree = "<group>"; };
+		744916711B442EEC00D37FBE /* tommath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tommath.c; sourceTree = "<group>"; };
+		744916721B442EEC00D37FBE /* tommath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath.h; sourceTree = "<group>"; };
+		744916731B442EEC00D37FBE /* tommath_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath_class.h; sourceTree = "<group>"; };
+		744916741B442EEC00D37FBE /* tommath_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath_superclass.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +68,33 @@
 		744916561B442E4100D37FBE /* SwiftBigInt */ = {
 			isa = PBXGroup;
 			children = (
+				7449166B1B442EEC00D37FBE /* JKBigInteger */,
 				744916571B442E4100D37FBE /* main.swift */,
 			);
 			path = SwiftBigInt;
+			sourceTree = "<group>";
+		};
+		7449166B1B442EEC00D37FBE /* JKBigInteger */ = {
+			isa = PBXGroup;
+			children = (
+				7449166C1B442EEC00D37FBE /* JKBigDecimal.h */,
+				7449166D1B442EEC00D37FBE /* JKBigDecimal.m */,
+				7449166E1B442EEC00D37FBE /* JKBigInteger.h */,
+				7449166F1B442EEC00D37FBE /* JKBigInteger.m */,
+				744916701B442EEC00D37FBE /* LibTomMath */,
+			);
+			path = JKBigInteger;
+			sourceTree = "<group>";
+		};
+		744916701B442EEC00D37FBE /* LibTomMath */ = {
+			isa = PBXGroup;
+			children = (
+				744916711B442EEC00D37FBE /* tommath.c */,
+				744916721B442EEC00D37FBE /* tommath.h */,
+				744916731B442EEC00D37FBE /* tommath_class.h */,
+				744916741B442EEC00D37FBE /* tommath_superclass.h */,
+			);
+			path = LibTomMath;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744916771B442EEC00D37FBE /* tommath.c in Sources */,
 				744916581B442E4100D37FBE /* main.swift in Sources */,
+				744916761B442EEC00D37FBE /* JKBigInteger.m in Sources */,
+				744916751B442EEC00D37FBE /* JKBigDecimal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
