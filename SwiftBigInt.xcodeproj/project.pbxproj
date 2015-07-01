@@ -11,6 +11,8 @@
 		744916751B442EEC00D37FBE /* JKBigDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449166D1B442EEC00D37FBE /* JKBigDecimal.m */; };
 		744916761B442EEC00D37FBE /* JKBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449166F1B442EEC00D37FBE /* JKBigInteger.m */; };
 		744916771B442EEC00D37FBE /* tommath.c in Sources */ = {isa = PBXBuildFile; fileRef = 744916711B442EEC00D37FBE /* tommath.c */; };
+		744916791B442F3200D37FBE /* SwiftBigInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744916781B442F3200D37FBE /* SwiftBigInteger.swift */; };
+		7449167C1B44338F00D37FBE /* SwiftBigIntOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7449167B1B44338F00D37FBE /* SwiftBigIntOperators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,9 @@
 		744916721B442EEC00D37FBE /* tommath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath.h; sourceTree = "<group>"; };
 		744916731B442EEC00D37FBE /* tommath_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath_class.h; sourceTree = "<group>"; };
 		744916741B442EEC00D37FBE /* tommath_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath_superclass.h; sourceTree = "<group>"; };
+		744916781B442F3200D37FBE /* SwiftBigInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBigInteger.swift; sourceTree = "<group>"; };
+		7449167A1B442F8900D37FBE /* SwiftBigInt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftBigInt-Bridging-Header.h"; sourceTree = "<group>"; };
+		7449167B1B44338F00D37FBE /* SwiftBigIntOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBigIntOperators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +75,9 @@
 			children = (
 				7449166B1B442EEC00D37FBE /* JKBigInteger */,
 				744916571B442E4100D37FBE /* main.swift */,
+				744916781B442F3200D37FBE /* SwiftBigInteger.swift */,
+				7449167A1B442F8900D37FBE /* SwiftBigInt-Bridging-Header.h */,
+				7449167B1B44338F00D37FBE /* SwiftBigIntOperators.swift */,
 			);
 			path = SwiftBigInt;
 			sourceTree = "<group>";
@@ -153,7 +161,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744916791B442F3200D37FBE /* SwiftBigInteger.swift in Sources */,
 				744916771B442EEC00D37FBE /* tommath.c in Sources */,
+				7449167C1B44338F00D37FBE /* SwiftBigIntOperators.swift in Sources */,
 				744916581B442E4100D37FBE /* main.swift in Sources */,
 				744916761B442EEC00D37FBE /* JKBigInteger.m in Sources */,
 				744916751B442EEC00D37FBE /* JKBigDecimal.m in Sources */,
@@ -245,6 +255,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Debug;
 		};
@@ -252,6 +264,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
