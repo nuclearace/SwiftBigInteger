@@ -114,7 +114,7 @@
     [encoder encodeInteger:m_value.sign forKey:@"JKBigIntegerSign"];
 }
 
-- (id)add:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)add:(JKBigInteger *)bigInteger {
 
     mp_int sum;
     mp_init(&sum);
@@ -127,7 +127,7 @@
     return newBigInteger;
 }
 
-- (id)subtract:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)subtract:(JKBigInteger *)bigInteger {
 
     mp_int difference;
     mp_init(&difference);
@@ -140,7 +140,7 @@
     return newBigInteger;
 }
 
-- (id)multiply:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)multiply:(JKBigInteger *)bigInteger {
 
     mp_int product;
     mp_init(&product);
@@ -153,7 +153,7 @@
     return newBigInteger;
 }
 
-- (id)divide:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)divide:(JKBigInteger *)bigInteger {
 
     int result;
     mp_int quotient;
@@ -171,7 +171,7 @@
     return newBigInteger;
 }
 
-- (id)remainder:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)remainder:(JKBigInteger *)bigInteger {
 
     int result;
     mp_int remainder;
@@ -208,7 +208,7 @@
     return @[quotientBigInteger, remainderBigInteger];
 }
 
-- (id)pow:(unsigned int)exponent {
+- (JKBigInteger*)pow:(unsigned int)exponent {
 
     int result;
     mp_int power;
@@ -226,7 +226,7 @@
     return newBigInteger;
 }
 
-- (id)pow:(JKBigInteger*)exponent andMod: (JKBigInteger*)modulus {
+- (JKBigInteger*)pow:(JKBigInteger*)exponent andMod: (JKBigInteger*)modulus {
 
     int result;
     mp_int output;
@@ -244,7 +244,7 @@
     return newBigInteger;
 }
 
-- (id)negate {
+- (JKBigInteger*)negate {
 
     mp_int negate;
     mp_init(&negate);
@@ -256,7 +256,7 @@
     return newBigInteger;
 }
 
-- (id)abs {
+- (JKBigInteger*)abs {
 
     mp_int absolute;
     mp_init(&absolute);
@@ -268,7 +268,7 @@
     return newBigInteger;
 }
 
-- (id)bitwiseXor:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)bitwiseXor:(JKBigInteger *)bigInteger {
 
     mp_int xor;
     mp_init(&xor);
@@ -280,7 +280,7 @@
     return newBigInteger;
 }
 
-- (id)bitwiseOr:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)bitwiseOr:(JKBigInteger *)bigInteger {
 
     mp_int or;
     mp_init(&or);
@@ -292,7 +292,7 @@
     return newBigInteger;
 }
 
-- (id)bitwiseAnd:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)bitwiseAnd:(JKBigInteger *)bigInteger {
 
     mp_int and;
     mp_init(&and);
@@ -304,7 +304,7 @@
     return newBigInteger;
 }
 
-- (id)shiftLeft:(unsigned int)n {
+- (JKBigInteger*)shiftLeft:(unsigned int)n {
 
     mp_int lShift;
     mp_init(&lShift);
@@ -316,7 +316,7 @@
     return newBigInteger;
 }
 
-- (id)shiftRight:(unsigned int)n {
+- (JKBigInteger*)shiftRight:(unsigned int)n {
 
     mp_int rShift;
     mp_init(&rShift);
@@ -327,7 +327,7 @@
     
     return newBigInteger;
 }
-- (id)gcd:(JKBigInteger *)bigInteger {
+- (JKBigInteger*)gcd:(JKBigInteger *)bigInteger {
 
     int result;
     mp_int gcd;

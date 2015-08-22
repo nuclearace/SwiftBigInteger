@@ -76,8 +76,8 @@
 				7449166B1B442EEC00D37FBE /* JKBigInteger */,
 				744916571B442E4100D37FBE /* main.swift */,
 				744916781B442F3200D37FBE /* SwiftBigInteger.swift */,
-				7449167A1B442F8900D37FBE /* SwiftBigInt-Bridging-Header.h */,
 				7449167B1B44338F00D37FBE /* SwiftBigIntOperators.swift */,
+				7449167A1B442F8900D37FBE /* SwiftBigInt-Bridging-Header.h */,
 			);
 			path = SwiftBigInt;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Debug;
 		};
@@ -265,7 +265,7 @@
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -288,6 +288,7 @@
 				7449165D1B442E4100D37FBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

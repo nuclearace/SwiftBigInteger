@@ -20,26 +20,26 @@
 - (id)initWithCString:(char *)cString;
 - (id)initWithCString:(char *)cString andRadix:(int)radix;
 
-- (id)add:(JKBigInteger *)bigInteger;
-- (id)subtract:(JKBigInteger *)bigInteger;
-- (id)multiply:(JKBigInteger *)bigInteger;
-- (id)divide:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)add:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)subtract:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)multiply:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)divide:(JKBigInteger *)bigInteger;
 
-- (id)remainder:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)remainder:(JKBigInteger *)bigInteger;
 - (NSArray *)divideAndRemainder:(JKBigInteger *)bigInteger;
 
-- (id)pow:(unsigned int)exponent;
-- (id)pow:(JKBigInteger*)exponent andMod:(JKBigInteger*)modulus;
-- (id)negate;
-- (id)abs;
+- (JKBigInteger*)pow:(unsigned int)exponent;
+- (JKBigInteger*)pow:(JKBigInteger*)exponent andMod:(JKBigInteger*)modulus;
+- (JKBigInteger*)negate;
+- (JKBigInteger*)abs;
 
-- (id)bitwiseXor:(JKBigInteger *)bigInteger;
-- (id)bitwiseOr:(JKBigInteger *)bigInteger;
-- (id)bitwiseAnd:(JKBigInteger *)bigInteger;
-- (id)shiftLeft:(unsigned int)n;
-- (id)shiftRight:(unsigned int)n;
+- (JKBigInteger*)bitwiseXor:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)bitwiseOr:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)bitwiseAnd:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)shiftLeft:(unsigned int)n;
+- (JKBigInteger*)shiftRight:(unsigned int)n;
 
-- (id)gcd:(JKBigInteger *)bigInteger;
+- (JKBigInteger*)gcd:(JKBigInteger *)bigInteger;
 
 - (NSComparisonResult) compare:(JKBigInteger *)bigInteger;
 

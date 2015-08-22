@@ -1,5 +1,3 @@
-import Foundation
-
 func fib(n: SwiftBigInteger) -> SwiftBigInteger {
     if n < 2 {
         return n
@@ -8,11 +6,12 @@ func fib(n: SwiftBigInteger) -> SwiftBigInteger {
     var fibPrev = SwiftBigInteger(int: 1)
     var fib = SwiftBigInteger(int: 1)
     
-    for var num = SwiftBigInteger(int: 2); num < n; num = num + 1 {
+    for var num = SwiftBigInteger(int: 2); num < n; ++num {
         (fibPrev, fib) = (fib, fib + fibPrev)
     }
     
     return fib
 }
 
-print(fib(SwiftBigInteger(int: 10000)))
+print("Running")
+print(fib(SwiftBigInteger(int: 100000)).stringValue.characters.count)

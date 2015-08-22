@@ -10,9 +10,11 @@ import Foundation
 
 struct SwiftBigInteger: CustomStringConvertible, Equatable, Comparable {
     let internalInt:JKBigInteger
+    
     var description:String {
         return stringValue
     }
+    
     var stringValue:String {
         return internalInt.stringValue()
     }
@@ -38,25 +40,25 @@ extension SwiftBigInteger {
 
 extension SwiftBigInteger {
     func add(rhs:SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.add(rhs.internalInt) as! JKBigInteger
+        let new = internalInt.add(rhs.internalInt)
         
         return SwiftBigInteger(jkInteger: new)
     }
     
     func divide(rhs:SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.divide(rhs.internalInt) as! JKBigInteger
+        let new = internalInt.divide(rhs.internalInt)
         
         return SwiftBigInteger(jkInteger: new)
     }
     
     func multiply(rhs:SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.multiply(rhs.internalInt) as! JKBigInteger
+        let new = internalInt.multiply(rhs.internalInt)
         
         return SwiftBigInteger(jkInteger: new)
     }
     
     func subtract(rhs:SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.subtract(rhs.internalInt) as! JKBigInteger
+        let new = internalInt.subtract(rhs.internalInt)
         
         return SwiftBigInteger(jkInteger: new)
     }
@@ -64,25 +66,25 @@ extension SwiftBigInteger {
 
 extension SwiftBigInteger {
     func add(rhs:Int) -> SwiftBigInteger {
-        let new = internalInt.add(JKBigInteger(string: String(rhs))) as! JKBigInteger
+        let new = internalInt.add(JKBigInteger(string: String(rhs)))
         
         return SwiftBigInteger(jkInteger: new)
     }
     
     func divide(rhs:Int) -> SwiftBigInteger {
-        let new = internalInt.divide(JKBigInteger(string: String(rhs))) as! JKBigInteger
+        let new = internalInt.divide(JKBigInteger(string: String(rhs)))
         
         return SwiftBigInteger(jkInteger: new)
     }
     
     func multiply(rhs:Int) -> SwiftBigInteger {
-        let new = internalInt.multiply(JKBigInteger(string: String(rhs))) as! JKBigInteger
+        let new = internalInt.multiply(JKBigInteger(string: String(rhs)))
         
         return SwiftBigInteger(jkInteger: new)
     }
     
     func subtract(rhs:Int) -> SwiftBigInteger {
-        let new = internalInt.subtract(JKBigInteger(string: String(rhs))) as! JKBigInteger
+        let new = internalInt.subtract(JKBigInteger(string: String(rhs)))
         
         return SwiftBigInteger(jkInteger: new)
     }
