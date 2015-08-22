@@ -13,6 +13,8 @@
 		74DA9DBC1B89024D0013FCCB /* JKBigDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DB41B89024D0013FCCB /* JKBigDecimal.m */; };
 		74DA9DBD1B89024D0013FCCB /* JKBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DB61B89024D0013FCCB /* JKBigInteger.m */; };
 		74DA9DBE1B89024D0013FCCB /* tommath.c in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DB81B89024D0013FCCB /* tommath.c */; };
+		74DA9DC01B8904E40013FCCB /* SwiftBigDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DBF1B8904E40013FCCB /* SwiftBigDecimal.swift */; };
+		74DA9DC31B89058B0013FCCB /* SwiftBigDecimalOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DC21B89058B0013FCCB /* SwiftBigDecimalOperators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +43,8 @@
 		74DA9DB91B89024D0013FCCB /* tommath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath.h; sourceTree = "<group>"; };
 		74DA9DBA1B89024D0013FCCB /* tommath_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath_class.h; sourceTree = "<group>"; };
 		74DA9DBB1B89024D0013FCCB /* tommath_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tommath_superclass.h; sourceTree = "<group>"; };
+		74DA9DBF1B8904E40013FCCB /* SwiftBigDecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftBigDecimal.swift; path = SwiftBigDecimal/SwiftBigDecimal.swift; sourceTree = "<group>"; };
+		74DA9DC21B89058B0013FCCB /* SwiftBigDecimalOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftBigDecimalOperators.swift; path = SwiftBigDecimal/SwiftBigDecimalOperators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 		744916561B442E4100D37FBE /* SwiftBigInt */ = {
 			isa = PBXGroup;
 			children = (
+				74DA9DC11B8904ED0013FCCB /* SwiftBigDecimal */,
 				74DA9DB21B89024D0013FCCB /* JKBigInteger */,
 				74DA9D9E1B8900C40013FCCB /* SwiftBigInteger */,
 				744916571B442E4100D37FBE /* main.swift */,
@@ -111,6 +116,15 @@
 				74DA9DBB1B89024D0013FCCB /* tommath_superclass.h */,
 			);
 			path = LibTomMath;
+			sourceTree = "<group>";
+		};
+		74DA9DC11B8904ED0013FCCB /* SwiftBigDecimal */ = {
+			isa = PBXGroup;
+			children = (
+				74DA9DBF1B8904E40013FCCB /* SwiftBigDecimal.swift */,
+				74DA9DC21B89058B0013FCCB /* SwiftBigDecimalOperators.swift */,
+			);
+			name = SwiftBigDecimal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,11 +183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74DA9DC01B8904E40013FCCB /* SwiftBigDecimal.swift in Sources */,
 				74DA9DA11B8900C40013FCCB /* SwiftBigInteger.swift in Sources */,
 				74DA9DA21B8900C40013FCCB /* SwiftBigIntOperators.swift in Sources */,
 				74DA9DBE1B89024D0013FCCB /* tommath.c in Sources */,
 				744916581B442E4100D37FBE /* main.swift in Sources */,
 				74DA9DBD1B89024D0013FCCB /* JKBigInteger.m in Sources */,
+				74DA9DC31B89058B0013FCCB /* SwiftBigDecimalOperators.swift in Sources */,
 				74DA9DBC1B89024D0013FCCB /* JKBigDecimal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,5 +28,4 @@
 #import "JKBigInteger/JKBigInteger.h"
 #import "JKBigInteger/JKBigDecimal.h"
 
-
 #endif /* BigIntSwift_Bridging_Header_h */

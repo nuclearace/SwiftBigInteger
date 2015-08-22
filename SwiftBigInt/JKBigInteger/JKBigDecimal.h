@@ -17,18 +17,18 @@
 + (id)decimalWithString:(NSString *)string;
 - (id)initWithString:(NSString *)string;
 
-- (id)add:(JKBigDecimal *)bigDecimal;
-- (id)subtract:(JKBigDecimal *)bigDecimal;
-- (id)multiply:(JKBigDecimal *)bigDecimal;
-- (id)divide:(JKBigDecimal *)bigDecimal;
+- (JKBigDecimal*)add:(JKBigDecimal *)bigDecimal;
+- (JKBigDecimal*)subtract:(JKBigDecimal *)bigDecimal;
+- (JKBigDecimal*)multiply:(JKBigDecimal *)bigDecimal;
+- (JKBigDecimal*)divide:(JKBigDecimal *)bigDecimal;
 
-- (id)remainder:(JKBigDecimal *)bigInteger;
+- (JKBigDecimal*)remainder:(JKBigDecimal *)bigInteger;
 //- (NSArray *)divideAndRemainder:(JKBigDecimal *)bigInteger;
 
-- (id)pow:(unsigned int)exponent;
+- (JKBigDecimal*)pow:(unsigned int)exponent;
 
-- (id)negate;
-- (id)abs;
+- (JKBigDecimal*)negate;
+- (JKBigDecimal*)abs;
 
 - (NSString *)stringValue;
 
