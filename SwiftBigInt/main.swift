@@ -14,4 +14,4 @@ func fib(n: SwiftBigInteger) -> SwiftBigInteger {
 }
 
 print("Running")
-print(fib(SwiftBigInteger(int: 100000)).stringValue.characters.count)
+print(fib(SwiftBigInteger(int: 100000)))
