@@ -24,7 +24,7 @@
 
 import Foundation
 
-struct SwiftBigDecimal: CustomStringConvertible, Comparable {
+struct SwiftBigDecimal: CustomStringConvertible {
     let internalDecimal: JKBigDecimal
     
     var description: String {
