@@ -44,12 +44,46 @@ func <(lhs: SwiftBigInteger, rhs: Int) -> Bool {
     return lhs < SwiftBigInteger(int: rhs)
 }
 
+func +=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+    rhs = rhs + lhs
+}
+
+func +=(inout rhs: SwiftBigInteger, lhs: Int) {
+    rhs = rhs + lhs
+}
+
+func -=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+    rhs = rhs - lhs
+}
+
+func -=(inout rhs: SwiftBigInteger, lhs: Int) {
+    rhs = rhs - lhs
+}
+
+func *=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+    rhs = rhs * lhs
+}
+
+func *=(inout rhs: SwiftBigInteger, lhs: Int) {
+    rhs = rhs * lhs
+}
+
+func /=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+    rhs = rhs / lhs
+}
+
+func /=(inout rhs: SwiftBigInteger, lhs: Int) {
+    rhs = rhs / lhs
+}
+
+@available(*, deprecated=1.0)
 prefix func ++(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
     rhs = rhs + 1
     
     return rhs
 }
 
+@available(*, deprecated=1.0)
 postfix func ++(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
     let ret = rhs
     
@@ -58,12 +92,14 @@ postfix func ++(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
     return ret
 }
 
+@available(*, deprecated=1.0)
 prefix func --(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
     rhs = rhs - 1
     
     return rhs
 }
 
+@available(*, deprecated=1.0)
 postfix func --(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
     let ret = rhs
     

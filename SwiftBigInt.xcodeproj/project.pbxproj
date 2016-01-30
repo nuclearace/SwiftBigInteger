@@ -11,8 +11,6 @@
 		744916581B442E4100D37FBE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744916571B442E4100D37FBE /* main.swift */; };
 		74DA9DA11B8900C40013FCCB /* SwiftBigInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9D9F1B8900C40013FCCB /* SwiftBigInteger.swift */; };
 		74DA9DA21B8900C40013FCCB /* SwiftBigIntOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DA01B8900C40013FCCB /* SwiftBigIntOperators.swift */; };
-		74DA9DBC1B89024D0013FCCB /* JKBigDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DB41B89024D0013FCCB /* JKBigDecimal.m */; };
-		74DA9DBD1B89024D0013FCCB /* JKBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DB61B89024D0013FCCB /* JKBigInteger.m */; };
 		74DA9DC01B8904E40013FCCB /* SwiftBigDecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DBF1B8904E40013FCCB /* SwiftBigDecimal.swift */; };
 		74DA9DC31B89058B0013FCCB /* SwiftBigDecimalOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA9DC21B89058B0013FCCB /* SwiftBigDecimalOperators.swift */; };
 /* End PBXBuildFile section */
@@ -39,10 +37,6 @@
 		74DA9D9F1B8900C40013FCCB /* SwiftBigInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBigInteger.swift; sourceTree = "<group>"; };
 		74DA9DA01B8900C40013FCCB /* SwiftBigIntOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBigIntOperators.swift; sourceTree = "<group>"; };
 		74DA9DB11B89022A0013FCCB /* SwiftBigInt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftBigInt-Bridging-Header.h"; sourceTree = "<group>"; };
-		74DA9DB31B89024D0013FCCB /* JKBigDecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKBigDecimal.h; sourceTree = "<group>"; };
-		74DA9DB41B89024D0013FCCB /* JKBigDecimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKBigDecimal.m; sourceTree = "<group>"; };
-		74DA9DB51B89024D0013FCCB /* JKBigInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKBigInteger.h; sourceTree = "<group>"; };
-		74DA9DB61B89024D0013FCCB /* JKBigInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKBigInteger.m; sourceTree = "<group>"; };
 		74DA9DBF1B8904E40013FCCB /* SwiftBigDecimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftBigDecimal.swift; path = SwiftBigDecimal/SwiftBigDecimal.swift; sourceTree = "<group>"; };
 		74DA9DC21B89058B0013FCCB /* SwiftBigDecimalOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftBigDecimalOperators.swift; path = SwiftBigDecimal/SwiftBigDecimalOperators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +84,6 @@
 			children = (
 				74DA9D9E1B8900C40013FCCB /* SwiftBigInteger */,
 				74DA9DC11B8904ED0013FCCB /* SwiftBigDecimal */,
-				74DA9DB21B89024D0013FCCB /* JKBigInteger */,
 				744916571B442E4100D37FBE /* main.swift */,
 				74DA9DB11B89022A0013FCCB /* SwiftBigInt-Bridging-Header.h */,
 				7401B1E71BEA6BF300190EDC /* LibTomMath */,
@@ -105,17 +98,6 @@
 				74DA9DA01B8900C40013FCCB /* SwiftBigIntOperators.swift */,
 			);
 			path = SwiftBigInteger;
-			sourceTree = "<group>";
-		};
-		74DA9DB21B89024D0013FCCB /* JKBigInteger */ = {
-			isa = PBXGroup;
-			children = (
-				74DA9DB31B89024D0013FCCB /* JKBigDecimal.h */,
-				74DA9DB41B89024D0013FCCB /* JKBigDecimal.m */,
-				74DA9DB51B89024D0013FCCB /* JKBigInteger.h */,
-				74DA9DB61B89024D0013FCCB /* JKBigInteger.m */,
-			);
-			path = JKBigInteger;
 			sourceTree = "<group>";
 		};
 		74DA9DC11B8904ED0013FCCB /* SwiftBigDecimal */ = {
@@ -188,9 +170,7 @@
 				74DA9DA21B8900C40013FCCB /* SwiftBigIntOperators.swift in Sources */,
 				744916581B442E4100D37FBE /* main.swift in Sources */,
 				7401B1EC1BEA6BF300190EDC /* tommath.c in Sources */,
-				74DA9DBD1B89024D0013FCCB /* JKBigInteger.m in Sources */,
 				74DA9DC31B89058B0013FCCB /* SwiftBigDecimalOperators.swift in Sources */,
-				74DA9DBC1B89024D0013FCCB /* JKBigDecimal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +261,7 @@
 				GCC_OPTIMIZATION_LEVEL = fast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -291,7 +271,7 @@
 				GCC_OPTIMIZATION_LEVEL = fast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};

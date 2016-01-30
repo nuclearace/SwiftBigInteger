@@ -25,7 +25,6 @@
 #ifndef BigIntSwift_Bridging_Header_h
 #define BigIntSwift_Bridging_Header_h
 
-#import "JKBigInteger/JKBigInteger.h"
-#import "JKBigInteger/JKBigDecimal.h"
+#import "tommath.h"
 
 #endif /* BigIntSwift_Bridging_Header_h */

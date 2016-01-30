@@ -15,3 +15,7 @@ func fib(n: SwiftBigInteger) -> SwiftBigInteger {
 
 print("Running")
 print(String(fib(SwiftBigInteger(int: 10000))).characters.count)
+
+let a = SwiftBigDecimal(string: "12.24")
+let b = SwiftBigDecimal(string: "1.2")
+print(a / 1.2)

@@ -103,3 +103,19 @@ func /(lhs: SwiftBigDecimal, rhs: Int) -> SwiftBigDecimal {
 func *(lhs: SwiftBigDecimal, rhs: Int) -> SwiftBigDecimal {
     return lhs.multiply(rhs)
 }
+
+func +(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    return lhs.add(rhs)
+}
+
+func -(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    return lhs.subtract(rhs)
+}
+
+func /(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    return lhs.divide(rhs)
+}
+
+func *(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    return lhs.multiply(rhs)
+}

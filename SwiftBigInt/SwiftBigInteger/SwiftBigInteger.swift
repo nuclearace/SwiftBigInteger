@@ -52,18 +52,22 @@ class SwiftBigInteger: CustomStringConvertible, Equatable, Comparable {
         return String(CString: &stringArr, encoding: NSUTF8StringEncoding)!
     }
     
-    init(numString: String) {
+    init(string: String, withRadix radix: Int) {
         let pointer = UnsafeMutablePointer<mp_digit>.alloc(1)
         internalInt = mp_int(used: 0, alloc: 0, sign: 0, dp: pointer)
         mp_init(&internalInt)
-        mp_read_radix(&internalInt, numString.cStringUsingEncoding(NSUTF8StringEncoding)!, 10)
+        mp_read_radix(&internalInt, string.cStringUsingEncoding(NSUTF8StringEncoding)!, Int32(radix))
         
         pointer.dealloc(1)
         pointer.destroy()
     }
     
+    convenience init(string: String) {
+        self.init(string: string, withRadix: 10)
+    }
+    
     convenience init(int: Int) {
-        self.init(numString: String(int))
+        self.init(string: String(int))
     }
     
     private init(mpInt: mp_int) {
@@ -151,6 +155,27 @@ extension SwiftBigInteger {
         otherPointer.dealloc(1)
         
         return SwiftBigInteger(mpInt: difference)
+    }
+    
+    func pow(exponent: Int) -> SwiftBigInteger {
+        let pointer = UnsafeMutablePointer<mp_digit>.alloc(1)
+        let otherPointer = internalIntPointer
+        var power = mp_int(used: 0, alloc: 0, sign: 0, dp: pointer)
+        mp_init(&power)
+        
+        let result = mp_expt_d(otherPointer, UInt(exponent), &power)
+        
+        if result == MP_VAL {
+            mp_clear(&power)
+            return SwiftBigInteger(string: "0")
+        }
+        
+        let new = SwiftBigInteger(mpInt: power)
+        
+        pointer.dealloc(1)
+        otherPointer.dealloc(1)
+        
+        return new
     }
 }
 
