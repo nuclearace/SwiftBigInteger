@@ -19,11 +19,10 @@ print(fib(SwiftBigInteger(int: 100000)))
 ```
 Install:
 
-1. Copy SwiftBigInt/JKBigInteger into your project (be sure to add it to your targets)
+1. Copy SwiftBigInt/LibTomMath into your project (be sure to add it to your targets)
 2. Copy SwiftBigInt/SwiftBigInteger and/or SwiftBigDecimal into your project (be sure to add it your targets)
 3. Create a bridging header and add these lines to it. (Or add them to an existing header)
 
 ```c
-#import "JKBigInteger/JKBigInteger.h"
-#import "JKBigInteger/JKBigDecimal.h"
+#import "tommath.h"
 ```
