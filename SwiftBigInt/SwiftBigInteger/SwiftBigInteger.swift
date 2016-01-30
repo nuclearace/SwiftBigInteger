@@ -24,84 +24,150 @@
 
 import Foundation
 
-struct SwiftBigInteger: CustomStringConvertible, Equatable, Comparable {
-    let internalInt: JKBigInteger
+class SwiftBigInteger: CustomStringConvertible, Equatable, Comparable {
+    private var internalInt: mp_int
     
     var description: String {
         return stringValue
     }
     
+    private var internalIntPointer: UnsafeMutablePointer<mp_int> {
+        let pointer = UnsafeMutablePointer<mp_int>.alloc(1)
+        pointer.initialize(internalInt)
+        
+        return pointer
+    }
+    
     var stringValue: String {
-        return internalInt.stringValue()
+        var stringSize: Int32 = 0
+        var stringArr: [Int8]
+        let pointer = internalIntPointer
+        
+        mp_radix_size(pointer, 10, &stringSize)
+        stringArr = [Int8](count: Int(stringSize), repeatedValue: 0)
+        mp_toradix(pointer, &stringArr, 10)
+        
+        pointer.dealloc(1)
+        pointer.destroy()
+        return String(CString: &stringArr, encoding: NSUTF8StringEncoding)!
     }
     
     init(numString: String) {
-        internalInt = JKBigInteger(string: numString)
+        let pointer = UnsafeMutablePointer<mp_digit>.alloc(1)
+        internalInt = mp_int(used: 0, alloc: 0, sign: 0, dp: pointer)
+        mp_init(&internalInt)
+        mp_read_radix(&internalInt, numString.cStringUsingEncoding(NSUTF8StringEncoding)!, 10)
+        
+        pointer.dealloc(1)
+        pointer.destroy()
     }
     
-    init(jkInteger: JKBigInteger) {
-        internalInt = jkInteger
+    convenience init(int: Int) {
+        self.init(numString: String(int))
     }
     
-    init(int: Int) {
-        internalInt = JKBigInteger(string: String(int))
+    private init(mpInt: mp_int) {
+        internalInt = mpInt
+    }
+    
+    deinit {
+        mp_clear(&internalInt)
     }
 }
 
 extension SwiftBigInteger {
     func compare(rhs: SwiftBigInteger) -> NSComparisonResult {
-        return internalInt.compare(rhs.internalInt)
+        let comparisonResult = mp_cmp(rhs.internalIntPointer, internalIntPointer)
+        
+        switch comparisonResult {
+        case MP_GT:
+            return .OrderedAscending
+        case MP_EQ:
+            return .OrderedSame
+        case MP_LT:
+            return .OrderedDescending
+        default:
+            fatalError()
+        }
     }
 }
 
 extension SwiftBigInteger {
     func add(rhs: SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.add(rhs.internalInt)
+        let p = UnsafeMutablePointer<mp_digit>.alloc(1)
+        let pointer = internalIntPointer
+        let otherPointer = rhs.internalIntPointer
+        var sum = mp_int(used: 0, alloc: 0, sign: 0, dp: p)
         
-        return SwiftBigInteger(jkInteger: new)
+        mp_init(&sum)
+        mp_add(pointer, otherPointer, &sum)
+        
+        pointer.dealloc(1)
+        otherPointer.dealloc(1)
+        
+        return SwiftBigInteger(mpInt: sum)
     }
     
     func divide(rhs: SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.divide(rhs.internalInt)
+        let p = UnsafeMutablePointer<mp_digit>.alloc(1)
+        let pointer = internalIntPointer
+        let otherPointer = rhs.internalIntPointer
+        var quotient = mp_int(used: 0, alloc: 0, sign: 0, dp: p)
         
-        return SwiftBigInteger(jkInteger: new)
+        mp_init(&quotient)
+        mp_div(pointer, otherPointer, &quotient, nil)
+        
+        pointer.dealloc(1)
+        otherPointer.dealloc(1)
+        
+        return SwiftBigInteger(mpInt: quotient)
     }
     
     func multiply(rhs: SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.multiply(rhs.internalInt)
+        let p = UnsafeMutablePointer<mp_digit>.alloc(1)
+        let pointer = internalIntPointer
+        let otherPointer = rhs.internalIntPointer
+        var product = mp_int(used: 0, alloc: 0, sign: 0, dp: p)
         
-        return SwiftBigInteger(jkInteger: new)
+        mp_init(&product)
+        mp_mul(pointer, otherPointer, &product)
+        
+        pointer.dealloc(1)
+        otherPointer.dealloc(1)
+        
+        return SwiftBigInteger(mpInt: product)
     }
     
     func subtract(rhs: SwiftBigInteger) -> SwiftBigInteger {
-        let new = internalInt.subtract(rhs.internalInt)
+        let p = UnsafeMutablePointer<mp_digit>.alloc(1)
+        let pointer = internalIntPointer
+        let otherPointer = rhs.internalIntPointer
+        var difference = mp_int(used: 0, alloc: 0, sign: 0, dp: p)
         
-        return SwiftBigInteger(jkInteger: new)
+        mp_init(&difference)
+        mp_sub(pointer, otherPointer, &difference)
+        
+        pointer.dealloc(1)
+        otherPointer.dealloc(1)
+        
+        return SwiftBigInteger(mpInt: difference)
     }
 }
 
 extension SwiftBigInteger {
     func add(rhs: Int) -> SwiftBigInteger {
-        let new = internalInt.add(JKBigInteger(string: String(rhs)))
-        
-        return SwiftBigInteger(jkInteger: new)
+        return add(SwiftBigInteger(int: rhs))
     }
     
     func divide(rhs: Int) -> SwiftBigInteger {
-        let new = internalInt.divide(JKBigInteger(string: String(rhs)))
-        
-        return SwiftBigInteger(jkInteger: new)
+        return divide(SwiftBigInteger(int: rhs))
     }
     
     func multiply(rhs: Int) -> SwiftBigInteger {
-        let new = internalInt.multiply(JKBigInteger(string: String(rhs)))
-        
-        return SwiftBigInteger(jkInteger: new)
+        return multiply(SwiftBigInteger(int: rhs))
     }
     
     func subtract(rhs: Int) -> SwiftBigInteger {
-        let new = internalInt.subtract(JKBigInteger(string: String(rhs)))
-        
-        return SwiftBigInteger(jkInteger: new)
+        return divide(SwiftBigInteger(int: rhs))
     }
 }
