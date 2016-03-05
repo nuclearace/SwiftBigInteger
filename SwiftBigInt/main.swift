@@ -5,10 +5,12 @@ func fib(n: SwiftBigInteger) -> SwiftBigInteger {
     
     var fibPrev = SwiftBigInteger(int: 1)
     var fib = SwiftBigInteger(int: 1)
+    var num = SwiftBigInteger(int: 2)
     
-    for var num = SwiftBigInteger(int: 2); num < n; ++num {
+    repeat {
         (fibPrev, fib) = (fib, fib + fibPrev)
-    }
+        num += 1
+    } while num < n
     
     return fib
 }
@@ -16,6 +18,7 @@ func fib(n: SwiftBigInteger) -> SwiftBigInteger {
 print("Running")
 print(String(fib(SwiftBigInteger(int: 10000))).characters.count)
 
-let a = SwiftBigDecimal(string: "12.24")
-let b = SwiftBigDecimal(string: "1.2")
-print(a / 1.2)
+let a = SwiftBigInteger(string: "12")
+let b = SwiftBigInteger(string: "12")
+print(a / 14)
+print(a + b)
