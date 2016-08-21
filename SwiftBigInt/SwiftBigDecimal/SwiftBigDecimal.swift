@@ -42,21 +42,21 @@ class SwiftBigDecimal: CustomStringConvertible {
             var newFigure = string.characters.count - Int(figure)
             
             while newFigure <= 0 {
-                mutString.insertString("0", atIndex: 0)
+                mutString.insert("0", at: 0)
                 newFigure += 1
             }
             
-            mutString.insertString(".", atIndex: newFigure)
+            mutString.insert(".", at: newFigure)
             
             return mutString as String
         }
     }
     
     init(string: String) {
-        if string.containsString(".") {
-            let range = string.rangeOfString(".")!
-            figure = UInt(string[range.startIndex..<string.endIndex.predecessor()].characters.count)
-            internalInteger = SwiftBigInteger(string: string.stringByReplacingCharactersInRange(range, withString: ""))
+        if string.contains(".") {
+            let range = string.range(of: ".")!
+            figure = UInt(string[range.lowerBound..<string.characters.index(before: string.endIndex)].characters.count)
+            internalInteger = SwiftBigInteger(string: string.replacingCharacters(in: range, with: ""))
         } else {
             internalInteger = SwiftBigInteger(string: string)
         }
@@ -73,7 +73,7 @@ class SwiftBigDecimal: CustomStringConvertible {
 }
 
 extension SwiftBigDecimal {
-    func add(rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    func add(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         var maxFigure: UInt = 0
         
         if figure >= rhs.figure {
@@ -98,7 +98,7 @@ extension SwiftBigDecimal {
         return newDecimal
     }
     
-    func divide(rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    func divide(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         var totalFigure = Int(figure - rhs.figure)
         
         if totalFigure < 0 {
@@ -115,7 +115,7 @@ extension SwiftBigDecimal {
         return newDecimal
     }
     
-    func multiply(rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    func multiply(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         let totalFigure = figure + rhs.figure
         let newInteger = internalInteger * rhs.internalInteger
         let newDecimal = SwiftBigDecimal(bigInteger: newInteger, figure: Int(totalFigure))
@@ -123,7 +123,7 @@ extension SwiftBigDecimal {
         return newDecimal
     }
     
-    func subtract(rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    func subtract(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         var maxFigure: UInt = 0
         
         if figure >= rhs.figure {
@@ -150,37 +150,37 @@ extension SwiftBigDecimal {
 }
 
 extension SwiftBigDecimal {
-    func add(rhs: Int) -> SwiftBigDecimal {
+    func add(_ rhs: Int) -> SwiftBigDecimal {
         return add(SwiftBigDecimal(string: String(rhs)))
     }
     
-    func divide(rhs: Int) -> SwiftBigDecimal {
+    func divide(_ rhs: Int) -> SwiftBigDecimal {
         return divide(SwiftBigDecimal(string: String(rhs)))
     }
     
-    func multiply(rhs: Int) -> SwiftBigDecimal {
+    func multiply(_ rhs: Int) -> SwiftBigDecimal {
         return multiply(SwiftBigDecimal(string: String(rhs)))
     }
     
-    func subtract(rhs: Int) -> SwiftBigDecimal {
+    func subtract(_ rhs: Int) -> SwiftBigDecimal {
         return subtract(SwiftBigDecimal(string: String(rhs)))
     }
 }
 
 extension SwiftBigDecimal {
-    func add(rhs: Double) -> SwiftBigDecimal {
+    func add(_ rhs: Double) -> SwiftBigDecimal {
         return add(SwiftBigDecimal(string: String(rhs)))
     }
     
-    func divide(rhs: Double) -> SwiftBigDecimal {
+    func divide(_ rhs: Double) -> SwiftBigDecimal {
         return divide(SwiftBigDecimal(string: String(rhs)))
     }
     
-    func multiply(rhs: Double) -> SwiftBigDecimal {
+    func multiply(_ rhs: Double) -> SwiftBigDecimal {
         return multiply(SwiftBigDecimal(string: String(rhs)))
     }
     
-    func subtract(rhs: Double) -> SwiftBigDecimal {
+    func subtract(_ rhs: Double) -> SwiftBigDecimal {
         return subtract(SwiftBigDecimal(string: String(rhs)))
     }
 }

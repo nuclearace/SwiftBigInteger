@@ -1,4 +1,4 @@
-func fib(n: SwiftBigInteger) -> SwiftBigInteger {
+func fib(_ n: SwiftBigInteger) -> SwiftBigInteger {
     if n < 2 {
         return n
     }
@@ -16,9 +16,9 @@ func fib(n: SwiftBigInteger) -> SwiftBigInteger {
 }
 
 print("Running")
-print(String(fib(SwiftBigInteger(int: 10000))).characters.count)
+print(String(describing: fib(SwiftBigInteger(int: 100000))).characters.count)
 
-let a = SwiftBigInteger(string: "12")
-let b = SwiftBigInteger(string: "12")
-print(a / 14)
-print(a + b)
+let a = SwiftBigInteger(string: "23897834507380427589472895074982758924375827430572348578290475827409") + SwiftBigInteger(string: "2389783450738042789472895074982758924375827430572348578290475827409")
+let b = a.pow(100000)
+
+print("done")

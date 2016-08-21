@@ -24,8 +24,10 @@
 
 import Foundation
 
+infix operator **
+
 func ==(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> Bool {
-    return lhs.compare(rhs) == NSComparisonResult.OrderedSame
+    return lhs.compare(rhs) == ComparisonResult.orderedSame
 }
 
 func ==(lhs: SwiftBigInteger, rhs: Int) -> Bool {
@@ -33,7 +35,7 @@ func ==(lhs: SwiftBigInteger, rhs: Int) -> Bool {
 }
 
 func <(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> Bool {
-    return lhs.compare(rhs) == NSComparisonResult.OrderedAscending
+    return lhs.compare(rhs) == ComparisonResult.orderedAscending
 }
 
 func >(lhs: SwiftBigInteger, rhs: Int) -> Bool {
@@ -44,47 +46,47 @@ func <(lhs: SwiftBigInteger, rhs: Int) -> Bool {
     return lhs < SwiftBigInteger(int: rhs)
 }
 
-func +=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+func +=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
     rhs = rhs + lhs
 }
 
-func +=(inout rhs: SwiftBigInteger, lhs: Int) {
+func +=(rhs: inout SwiftBigInteger, lhs: Int) {
     rhs = rhs + lhs
 }
 
-func -=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+func -=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
     rhs = rhs - lhs
 }
 
-func -=(inout rhs: SwiftBigInteger, lhs: Int) {
+func -=(rhs: inout SwiftBigInteger, lhs: Int) {
     rhs = rhs - lhs
 }
 
-func *=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+func *=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
     rhs = rhs * lhs
 }
 
-func *=(inout rhs: SwiftBigInteger, lhs: Int) {
+func *=(rhs: inout SwiftBigInteger, lhs: Int) {
     rhs = rhs * lhs
 }
 
-func /=(inout rhs: SwiftBigInteger, lhs: SwiftBigInteger) {
+func /=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
     rhs = rhs / lhs
 }
 
-func /=(inout rhs: SwiftBigInteger, lhs: Int) {
+func /=(rhs: inout SwiftBigInteger, lhs: Int) {
     rhs = rhs / lhs
 }
 
-@available(*, deprecated=1.0)
-prefix func ++(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
+@available(*, deprecated: 1.0)
+prefix func ++(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
     rhs = rhs + 1
     
     return rhs
 }
 
-@available(*, deprecated=1.0)
-postfix func ++(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
+@available(*, deprecated: 1.0)
+postfix func ++(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
     let ret = rhs
     
     rhs = rhs + 1
@@ -92,15 +94,15 @@ postfix func ++(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
     return ret
 }
 
-@available(*, deprecated=1.0)
-prefix func --(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
+@available(*, deprecated: 1.0)
+prefix func --(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
     rhs = rhs - 1
     
     return rhs
 }
 
-@available(*, deprecated=1.0)
-postfix func --(inout rhs: SwiftBigInteger) -> SwiftBigInteger {
+@available(*, deprecated: 1.0)
+postfix func --(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
     let ret = rhs
     
     rhs = rhs - 1
@@ -138,4 +140,8 @@ func /(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
 
 func *(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
     return lhs.multiply(rhs)
+}
+
+func **(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
+    return lhs.pow(rhs)
 }

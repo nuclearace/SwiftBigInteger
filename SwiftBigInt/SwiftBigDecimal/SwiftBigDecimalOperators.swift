@@ -44,13 +44,13 @@ import Foundation
 //    return lhs < SwiftBigDecimal(int: rhs)
 //}
 
-prefix func ++(inout rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+prefix func ++(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
     rhs = rhs + 1
     
     return rhs
 }
 
-postfix func ++(inout rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+postfix func ++(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
     let ret = rhs
     
     rhs = rhs + 1
@@ -58,13 +58,13 @@ postfix func ++(inout rhs: SwiftBigDecimal) -> SwiftBigDecimal {
     return ret
 }
 
-prefix func --(inout rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+prefix func --(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
     rhs = rhs - 1
     
     return rhs
 }
 
-postfix func --(inout rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+postfix func --(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
     let ret = rhs
     
     rhs = rhs - 1

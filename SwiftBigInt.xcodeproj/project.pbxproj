@@ -140,6 +140,7 @@
 				TargetAttributes = {
 					744916531B442E4100D37FBE = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -259,9 +260,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_UNROLL_LOOPS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -269,9 +272,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_UNROLL_LOOPS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftBigInt/SwiftBigInt-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
