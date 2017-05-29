@@ -79,7 +79,7 @@ public class SwiftBigInteger : CustomStringConvertible, Equatable, Comparable {
     }
 }
 
-extension SwiftBigInteger {
+public extension SwiftBigInteger {
     public func compare(_ rhs: SwiftBigInteger) -> ComparisonResult {
         let comparisonResult = mp_cmp(rhs.internalIntPointer, internalIntPointer)
 
@@ -96,7 +96,7 @@ extension SwiftBigInteger {
     }
 }
 
-extension SwiftBigInteger {
+public extension SwiftBigInteger {
     public func add(_ rhs: SwiftBigInteger) -> SwiftBigInteger {
         let p = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         let pointer = internalIntPointer
@@ -179,7 +179,7 @@ extension SwiftBigInteger {
     }
 }
 
-extension SwiftBigInteger {
+public extension SwiftBigInteger {
     public func add(_ rhs: Int) -> SwiftBigInteger {
         return add(SwiftBigInteger(int: rhs))
     }
