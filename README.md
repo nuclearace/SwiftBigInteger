@@ -1,11 +1,14 @@
 ```swift
-func fib(n: SwiftBigInteger) -> SwiftBigInteger {
+import SwiftBigInt
+
+func fib(n: BigInteger) -> BigInteger {
     if n < 2 {
         return n
     }
 
-    var fibPrev = SwiftBigInteger(int: 1)
-    var fib = SwiftBigInteger(int: 1)
+    var fibPrev = BigInteger(int: 1)
+    var fib = BigInteger(int: 1)
+    var num = BigInteger(int: 2)
 
     repeat {
         (fibPrev, fib) = (fib, fib + fibPrev)
@@ -15,10 +18,10 @@ func fib(n: SwiftBigInteger) -> SwiftBigInteger {
     return fib
 }
 
-print("Running")
-print(fib(SwiftBigInteger(int: 100000)))
+print(fib(BigInteger(int: 100000)))
 ```
 Install:
 
+- Install libtommath to /usr/local/
 - Add `.Package("https://github.com/nuclearace/SwiftBigInteger", majorVersion: 1)` as a dependency.
 - Add `-Xlinker -L/usr/local/lib -Xcc -I/usr/local/include` to your build command.

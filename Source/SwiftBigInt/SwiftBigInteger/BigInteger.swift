@@ -25,7 +25,7 @@
 import Foundation
 import LibTomMathSwift
 
-public class SwiftBigInteger : CustomStringConvertible, Equatable, Comparable {
+public class BigInteger: CustomStringConvertible, Equatable, Comparable {
     fileprivate var internalInt: mp_int
 
     public var description: String {
@@ -79,8 +79,8 @@ public class SwiftBigInteger : CustomStringConvertible, Equatable, Comparable {
     }
 }
 
-public extension SwiftBigInteger {
-    public func compare(_ rhs: SwiftBigInteger) -> ComparisonResult {
+public extension BigInteger {
+    public func compare(_ rhs: BigInteger) -> ComparisonResult {
         let comparisonResult = mp_cmp(rhs.internalIntPointer, internalIntPointer)
 
         switch comparisonResult {
@@ -96,8 +96,8 @@ public extension SwiftBigInteger {
     }
 }
 
-public extension SwiftBigInteger {
-    public func add(_ rhs: SwiftBigInteger) -> SwiftBigInteger {
+public extension BigInteger {
+    public func add(_ rhs: BigInteger) -> BigInteger {
         let p = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         let pointer = internalIntPointer
         let otherPointer = rhs.internalIntPointer
@@ -109,10 +109,10 @@ public extension SwiftBigInteger {
         pointer.deallocate(capacity: 1)
         otherPointer.deallocate(capacity: 1)
 
-        return SwiftBigInteger(mpInt: sum)
+        return BigInteger(mpInt: sum)
     }
 
-    public func divide(_ rhs: SwiftBigInteger) -> SwiftBigInteger {
+    public func divide(_ rhs: BigInteger) -> BigInteger {
         let p = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         let pointer = internalIntPointer
         let otherPointer = rhs.internalIntPointer
@@ -124,10 +124,10 @@ public extension SwiftBigInteger {
         pointer.deallocate(capacity: 1)
         otherPointer.deallocate(capacity: 1)
 
-        return SwiftBigInteger(mpInt: quotient)
+        return BigInteger(mpInt: quotient)
     }
 
-    public func multiply(_ rhs: SwiftBigInteger) -> SwiftBigInteger {
+    public func multiply(_ rhs: BigInteger) -> BigInteger {
         let p = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         let pointer = internalIntPointer
         let otherPointer = rhs.internalIntPointer
@@ -139,10 +139,10 @@ public extension SwiftBigInteger {
         pointer.deallocate(capacity: 1)
         otherPointer.deallocate(capacity: 1)
 
-        return SwiftBigInteger(mpInt: product)
+        return BigInteger(mpInt: product)
     }
 
-    public func subtract(_ rhs: SwiftBigInteger) -> SwiftBigInteger {
+    public func subtract(_ rhs: BigInteger) -> BigInteger {
         let p = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         let pointer = internalIntPointer
         let otherPointer = rhs.internalIntPointer
@@ -154,10 +154,10 @@ public extension SwiftBigInteger {
         pointer.deallocate(capacity: 1)
         otherPointer.deallocate(capacity: 1)
 
-        return SwiftBigInteger(mpInt: difference)
+        return BigInteger(mpInt: difference)
     }
 
-    public func pow(_ exponent: UInt64) -> SwiftBigInteger {
+    public func pow(_ exponent: UInt64) -> BigInteger {
         let pointer = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         let otherPointer = internalIntPointer
         var power = mp_int(used: 0, alloc: 0, sign: 0, dp: pointer)
@@ -167,29 +167,29 @@ public extension SwiftBigInteger {
 
         if result == MP_VAL {
             mp_clear(&power)
-            return SwiftBigInteger(string: "0")
+            return BigInteger(string: "0")
         }
 
         otherPointer.deallocate(capacity: 1)
 
-        return SwiftBigInteger(mpInt: power)
+        return BigInteger(mpInt: power)
     }
 }
 
-public extension SwiftBigInteger {
-    public func add(_ rhs: Int) -> SwiftBigInteger {
-        return add(SwiftBigInteger(int: rhs))
+public extension BigInteger {
+    public func add(_ rhs: Int) -> BigInteger {
+        return add(BigInteger(int: rhs))
     }
 
-    public func divide(_ rhs: Int) -> SwiftBigInteger {
-        return divide(SwiftBigInteger(int: rhs))
+    public func divide(_ rhs: Int) -> BigInteger {
+        return divide(BigInteger(int: rhs))
     }
 
-    public func multiply(_ rhs: Int) -> SwiftBigInteger {
-        return multiply(SwiftBigInteger(int: rhs))
+    public func multiply(_ rhs: Int) -> BigInteger {
+        return multiply(BigInteger(int: rhs))
     }
 
-    public func subtract(_ rhs: Int) -> SwiftBigInteger {
-        return divide(SwiftBigInteger(int: rhs))
+    public func subtract(_ rhs: Int) -> BigInteger {
+        return divide(BigInteger(int: rhs))
     }
 }

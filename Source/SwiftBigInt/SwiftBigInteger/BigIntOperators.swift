@@ -26,68 +26,68 @@ import Foundation
 
 infix operator **
 
-public extension SwiftBigInteger {
-    public static func ==(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> Bool {
+public extension BigInteger {
+    public static func ==(lhs: BigInteger, rhs: BigInteger) -> Bool {
         return lhs.compare(rhs) == ComparisonResult.orderedSame
     }
 
-    public static func ==(lhs: SwiftBigInteger, rhs: Int) -> Bool {
-        return lhs == SwiftBigInteger(int: rhs)
+    public static func ==(lhs: BigInteger, rhs: Int) -> Bool {
+        return lhs == BigInteger(int: rhs)
     }
 
-    public static func <(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> Bool {
+    public static func <(lhs: BigInteger, rhs: BigInteger) -> Bool {
         return lhs.compare(rhs) == ComparisonResult.orderedAscending
     }
 
-    public static func >(lhs: SwiftBigInteger, rhs: Int) -> Bool {
-        return lhs > SwiftBigInteger(int: rhs)
+    public static func >(lhs: BigInteger, rhs: Int) -> Bool {
+        return lhs > BigInteger(int: rhs)
     }
 
-    public static func <(lhs: SwiftBigInteger, rhs: Int) -> Bool {
-        return lhs < SwiftBigInteger(int: rhs)
+    public static func <(lhs: BigInteger, rhs: Int) -> Bool {
+        return lhs < BigInteger(int: rhs)
     }
 
-    public static func +=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
+    public static func +=(rhs: inout BigInteger, lhs: BigInteger) {
         rhs = rhs + lhs
     }
 
-    public static func +=(rhs: inout SwiftBigInteger, lhs: Int) {
+    public static func +=(rhs: inout BigInteger, lhs: Int) {
         rhs = rhs + lhs
     }
 
-    public static func -=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
+    public static func -=(rhs: inout BigInteger, lhs: BigInteger) {
         rhs = rhs - lhs
     }
 
-    public static func -=(rhs: inout SwiftBigInteger, lhs: Int) {
+    public static func -=(rhs: inout BigInteger, lhs: Int) {
         rhs = rhs - lhs
     }
 
-    public static func *=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
+    public static func *=(rhs: inout BigInteger, lhs: BigInteger) {
         rhs = rhs * lhs
     }
 
-    public static func *=(rhs: inout SwiftBigInteger, lhs: Int) {
+    public static func *=(rhs: inout BigInteger, lhs: Int) {
         rhs = rhs * lhs
     }
 
-    public static func /=(rhs: inout SwiftBigInteger, lhs: SwiftBigInteger) {
+    public static func /=(rhs: inout BigInteger, lhs: BigInteger) {
         rhs = rhs / lhs
     }
 
-    public static func /=(rhs: inout SwiftBigInteger, lhs: Int) {
+    public static func /=(rhs: inout BigInteger, lhs: Int) {
         rhs = rhs / lhs
     }
 
     @available(*, unavailable)
-    public static prefix func ++(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
+    public static prefix func ++(rhs: inout BigInteger) -> BigInteger {
         rhs = rhs + 1
 
         return rhs
     }
 
     @available(*, unavailable)
-    public static postfix func ++(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
+    public static postfix func ++(rhs: inout BigInteger) -> BigInteger {
         let ret = rhs
 
         rhs = rhs + 1
@@ -96,14 +96,14 @@ public extension SwiftBigInteger {
     }
 
     @available(*, unavailable)
-    public static prefix func --(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
+    public static prefix func --(rhs: inout BigInteger) -> BigInteger {
         rhs = rhs - 1
 
         return rhs
     }
 
     @available(*, unavailable)
-    public static postfix func --(rhs: inout SwiftBigInteger) -> SwiftBigInteger {
+    public static postfix func --(rhs: inout BigInteger) -> BigInteger {
         let ret = rhs
 
         rhs = rhs - 1
@@ -111,39 +111,39 @@ public extension SwiftBigInteger {
         return ret
     }
 
-    public static func +(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> SwiftBigInteger {
+    public static func +(lhs: BigInteger, rhs: BigInteger) -> BigInteger {
         return lhs.add(rhs)
     }
 
-    public static func -(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> SwiftBigInteger {
+    public static func -(lhs: BigInteger, rhs: BigInteger) -> BigInteger {
         return lhs.subtract(rhs)
     }
 
-    public static func /(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> SwiftBigInteger {
+    public static func /(lhs: BigInteger, rhs: BigInteger) -> BigInteger {
         return lhs.divide(rhs)
     }
 
-    public static func *(lhs: SwiftBigInteger, rhs: SwiftBigInteger) -> SwiftBigInteger {
+    public static func *(lhs: BigInteger, rhs: BigInteger) -> BigInteger {
         return lhs.multiply(rhs)
     }
 
-    public static func +(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
+    public static func +(lhs: BigInteger, rhs: Int) -> BigInteger {
         return lhs.add(rhs)
     }
 
-    public static func -(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
+    public static func -(lhs: BigInteger, rhs: Int) -> BigInteger {
         return lhs.subtract(rhs)
     }
 
-    public static func /(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
+    public static func /(lhs: BigInteger, rhs: Int) -> BigInteger {
         return lhs.divide(rhs)
     }
 
-    public static func *(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
+    public static func *(lhs: BigInteger, rhs: Int) -> BigInteger {
         return lhs.multiply(rhs)
     }
 
-    public static func **(lhs: SwiftBigInteger, rhs: UInt64) -> SwiftBigInteger {
+    public static func **(lhs: BigInteger, rhs: UInt64) -> BigInteger {
         return lhs.pow(rhs)
     }
 }

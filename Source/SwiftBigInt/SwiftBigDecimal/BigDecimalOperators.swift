@@ -44,16 +44,16 @@ import Foundation
 //    return lhs < SwiftBigDecimal(int: rhs)
 //}
 
-public extension SwiftBigDecimal {
+public extension BigDecimal {
     @available(*, unavailable)
-    public static prefix func ++(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
+    public static prefix func ++(rhs: inout BigDecimal) -> BigDecimal {
         rhs = rhs + 1
 
         return rhs
     }
 
     @available(*, unavailable)
-    public static postfix func ++(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
+    public static postfix func ++(rhs: inout BigDecimal) -> BigDecimal {
         let ret = rhs
 
         rhs = rhs + 1
@@ -62,14 +62,14 @@ public extension SwiftBigDecimal {
     }
 
     @available(*, unavailable)
-    public static prefix func --(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
+    public static prefix func --(rhs: inout BigDecimal) -> BigDecimal {
         rhs = rhs - 1
 
         return rhs
     }
 
     @available(*, unavailable)
-    public static postfix func --(rhs: inout SwiftBigDecimal) -> SwiftBigDecimal {
+    public static postfix func --(rhs: inout BigDecimal) -> BigDecimal {
         let ret = rhs
 
         rhs = rhs - 1
@@ -77,51 +77,51 @@ public extension SwiftBigDecimal {
         return ret
     }
 
-    public static func +(lhs: SwiftBigDecimal, rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    public static func +(lhs: BigDecimal, rhs: BigDecimal) -> BigDecimal {
         return lhs.add(rhs)
     }
 
-    public static func -(lhs: SwiftBigDecimal, rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    public static func -(lhs: BigDecimal, rhs: BigDecimal) -> BigDecimal {
         return lhs.subtract(rhs)
     }
 
-    public static func /(lhs: SwiftBigDecimal, rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    public static func /(lhs: BigDecimal, rhs: BigDecimal) -> BigDecimal {
         return lhs.divide(rhs)
     }
 
-    public static func *(lhs: SwiftBigDecimal, rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+    public static func *(lhs: BigDecimal, rhs: BigDecimal) -> BigDecimal {
         return lhs.multiply(rhs)
     }
 
-    public static func +(lhs: SwiftBigDecimal, rhs: Int) -> SwiftBigDecimal {
+    public static func +(lhs: BigDecimal, rhs: Int) -> BigDecimal {
         return lhs.add(rhs)
     }
 
-    public static func -(lhs: SwiftBigDecimal, rhs: Int) -> SwiftBigDecimal {
+    public static func -(lhs: BigDecimal, rhs: Int) -> BigDecimal {
         return lhs.subtract(rhs)
     }
 
-    public static func /(lhs: SwiftBigDecimal, rhs: Int) -> SwiftBigDecimal {
+    public static func /(lhs: BigDecimal, rhs: Int) -> BigDecimal {
         return lhs.divide(rhs)
     }
 
-    public static func *(lhs: SwiftBigDecimal, rhs: Int) -> SwiftBigDecimal {
+    public static func *(lhs: BigDecimal, rhs: Int) -> BigDecimal {
         return lhs.multiply(rhs)
     }
 
-    public static func +(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    public static func +(lhs: BigDecimal, rhs: Double) -> BigDecimal {
         return lhs.add(rhs)
     }
 
-    public static func -(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    public static func -(lhs: BigDecimal, rhs: Double) -> BigDecimal {
         return lhs.subtract(rhs)
     }
 
-    public static func /(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    public static func /(lhs: BigDecimal, rhs: Double) -> BigDecimal {
         return lhs.divide(rhs)
     }
 
-    public static func *(lhs: SwiftBigDecimal, rhs: Double) -> SwiftBigDecimal {
+    public static func *(lhs: BigDecimal, rhs: Double) -> BigDecimal {
         return lhs.multiply(rhs)
     }
 }
