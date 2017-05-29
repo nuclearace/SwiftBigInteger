@@ -50,7 +50,7 @@ public class SwiftBigInteger : CustomStringConvertible, Equatable, Comparable {
 
         pointer.deallocate(capacity: 1)
 
-        return String(cString: &stringArr, encoding: String.Encoding.utf8)!
+        return String(cString: &stringArr, encoding: .utf8)!
     }
 
     public init(string: String, withRadix radix: Int) {
@@ -157,13 +157,13 @@ public extension SwiftBigInteger {
         return SwiftBigInteger(mpInt: difference)
     }
 
-    public func pow(_ exponent: Int) -> SwiftBigInteger {
+    public func pow(_ exponent: UInt64) -> SwiftBigInteger {
         let pointer = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         let otherPointer = internalIntPointer
         var power = mp_int(used: 0, alloc: 0, sign: 0, dp: pointer)
         mp_init(&power)
 
-        let result = mp_expt_d(otherPointer, UInt64(exponent), &power)
+        let result = mp_expt_d(otherPointer, exponent, &power)
 
         if result == MP_VAL {
             mp_clear(&power)

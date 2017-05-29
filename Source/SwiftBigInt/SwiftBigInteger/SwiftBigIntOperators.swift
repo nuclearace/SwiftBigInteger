@@ -143,7 +143,7 @@ public extension SwiftBigInteger {
         return lhs.multiply(rhs)
     }
 
-    public static func **(lhs: SwiftBigInteger, rhs: Int) -> SwiftBigInteger {
+    public static func **(lhs: SwiftBigInteger, rhs: UInt64) -> SwiftBigInteger {
         return lhs.pow(rhs)
     }
 }

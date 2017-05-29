@@ -84,14 +84,14 @@ public extension SwiftBigDecimal {
             maxFigure = figure
             let exponent = maxFigure - rhs.figure
             let powerInt = SwiftBigInteger(int: 10)
-            let newInteger = powerInt.pow(Int(exponent))
+            let newInteger = powerInt.pow(UInt64(exponent))
             rhs.internalInteger *= newInteger
             rhs.figure = maxFigure
         } else {
             maxFigure = rhs.figure
             let exponent = maxFigure - figure
             let powerInt = SwiftBigInteger(int: 10)
-            let newInteger = powerInt.pow(Int(exponent))
+            let newInteger = powerInt.pow(UInt64(exponent))
             internalInteger *= newInteger
             figure = maxFigure
         }
@@ -109,7 +109,7 @@ public extension SwiftBigDecimal {
             let exponent = -totalFigure
             totalFigure = 0
             let powerInt = SwiftBigInteger(int: 10)
-            let newInteger = powerInt.pow(exponent)
+            let newInteger = powerInt.pow(UInt64(exponent))
             internalInteger *= newInteger
         }
 
@@ -134,14 +134,14 @@ public extension SwiftBigDecimal {
             maxFigure = figure
             let exponent = maxFigure - rhs.figure
             let powerInt = SwiftBigInteger(int: 10)
-            let newInteger = powerInt.pow(Int(exponent))
+            let newInteger = powerInt.pow(UInt64(exponent))
             rhs.internalInteger *= newInteger
             rhs.figure = maxFigure
         } else {
             maxFigure = rhs.figure
             let exponent = maxFigure - figure
             let powerInt = SwiftBigInteger(int: 10)
-            let newInteger = powerInt.pow(Int(exponent))
+            let newInteger = powerInt.pow(UInt64(exponent))
             internalInteger *= newInteger
             figure = maxFigure
         }

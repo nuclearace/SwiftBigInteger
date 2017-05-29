@@ -11,6 +11,12 @@ class TestSwiftBigInteger : XCTestCase {
         XCTAssertEqual("2662710205480735617346452022100755074809023407208374441801919604845563638678145849451440",
                        fib(SwiftBigInteger(int: 420)).stringValue, "It should correctly represent the 420th fib number")
     }
+
+    func testPower() {
+        XCTAssertEqual("548659264634089015060974548682822104896959524988040488900970843221769",
+                       (SwiftBigInteger(string: "23423476783647832647832647362784637") ** 2).stringValue,
+                       "It should correctly raise a value")
+    }
 }
 
 class TestSwiftBigDecimal : XCTestCase {
