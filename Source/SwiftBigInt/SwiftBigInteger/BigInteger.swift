@@ -57,9 +57,7 @@ public class BigInteger: CustomStringConvertible, Equatable, Comparable {
         let pointer = UnsafeMutablePointer<mp_digit>.allocate(capacity: 1)
         internalInt = mp_int(used: 0, alloc: 0, sign: 0, dp: pointer)
         mp_init(&internalInt)
-        mp_read_radix(&internalInt, string.cString(using: String.Encoding.utf8)!, Int32(radix))
-
-        pointer.deallocate(capacity: 1)
+        mp_read_radix(&internalInt, string.cString(using: .utf8)!, Int32(radix))
     }
 
     public convenience init(string: String) {
