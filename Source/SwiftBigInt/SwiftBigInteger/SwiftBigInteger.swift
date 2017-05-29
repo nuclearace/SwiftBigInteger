@@ -170,12 +170,9 @@ public extension SwiftBigInteger {
             return SwiftBigInteger(string: "0")
         }
 
-        let new = SwiftBigInteger(mpInt: power)
-
-        pointer.deallocate(capacity: 1)
         otherPointer.deallocate(capacity: 1)
 
-        return new
+        return SwiftBigInteger(mpInt: power)
     }
 }
 
