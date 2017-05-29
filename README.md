@@ -21,4 +21,4 @@ print(fib(SwiftBigInteger(int: 100000)))
 Install:
 
 - Add `.Package("https://github.com/nuclearace/SwiftBigInteger", majorVersion: 1)` as a dependency.
-- Add `-Xlinker -L/usr/local/lib -Xlinker -lopus -Xcc -I/usr/local/include` to your build command.
+- Add `-Xlinker -L/usr/local/lib -Xcc -I/usr/local/include` to your build command.
