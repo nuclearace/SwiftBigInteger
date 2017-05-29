@@ -23,36 +23,37 @@
 //  THE SOFTWARE.
 
 import Foundation
+import LibTomMathSwift
 
-class SwiftBigDecimal: CustomStringConvertible {
+public class SwiftBigDecimal : CustomStringConvertible {
     var figure: UInt = 0
     var internalInteger: SwiftBigInteger
-    
-    var description: String {
+
+    public var description: String {
         return stringValue
     }
-    
-    var stringValue: String {
+
+    public var stringValue: String {
         let string = internalInteger.stringValue
-        
+
         if figure == 0 {
             return string
         } else {
             let mutString = NSMutableString(string: string)
             var newFigure = string.characters.count - Int(figure)
-            
+
             while newFigure <= 0 {
                 mutString.insert("0", at: 0)
                 newFigure += 1
             }
-            
+
             mutString.insert(".", at: newFigure)
-            
+
             return mutString as String
         }
     }
-    
-    init(string: String) {
+
+    public init(string: String) {
         if string.contains(".") {
             let range = string.range(of: ".")!
             figure = UInt(string[range.lowerBound..<string.characters.index(before: string.endIndex)].characters.count)
@@ -61,21 +62,21 @@ class SwiftBigDecimal: CustomStringConvertible {
             internalInteger = SwiftBigInteger(string: string)
         }
     }
-    
-    init(bigInteger: SwiftBigInteger, figure: Int) {
+
+    public init(bigInteger: SwiftBigInteger, figure: Int) {
         internalInteger = bigInteger
         self.figure = UInt(figure)
     }
-    
-    convenience init(int: Int) {
+
+    public convenience init(int: Int) {
         self.init(string: String(int))
     }
 }
 
-extension SwiftBigDecimal {
-    func add(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+public extension SwiftBigDecimal {
+    public func add(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         var maxFigure: UInt = 0
-        
+
         if figure >= rhs.figure {
             maxFigure = figure
             let exponent = maxFigure - rhs.figure
@@ -91,16 +92,16 @@ extension SwiftBigDecimal {
             internalInteger *= newInteger
             figure = maxFigure
         }
-        
+
         let newInteger = internalInteger + rhs.internalInteger
         let newDecimal = SwiftBigDecimal(bigInteger: newInteger, figure: Int(maxFigure))
-        
+
         return newDecimal
     }
-    
-    func divide(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+
+    public func divide(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         var totalFigure = Int(figure - rhs.figure)
-        
+
         if totalFigure < 0 {
             let exponent = -totalFigure
             totalFigure = 0
@@ -108,24 +109,24 @@ extension SwiftBigDecimal {
             let newInteger = powerInt.pow(exponent)
             internalInteger *= newInteger
         }
-        
+
         let newInteger = internalInteger / rhs.internalInteger
         let newDecimal = SwiftBigDecimal(bigInteger: newInteger, figure: Int(totalFigure))
-        
+
         return newDecimal
     }
-    
-    func multiply(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+
+    public func multiply(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         let totalFigure = figure + rhs.figure
         let newInteger = internalInteger * rhs.internalInteger
         let newDecimal = SwiftBigDecimal(bigInteger: newInteger, figure: Int(totalFigure))
-        
+
         return newDecimal
     }
-    
-    func subtract(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
+
+    public func subtract(_ rhs: SwiftBigDecimal) -> SwiftBigDecimal {
         var maxFigure: UInt = 0
-        
+
         if figure >= rhs.figure {
             maxFigure = figure
             let exponent = maxFigure - rhs.figure
@@ -141,46 +142,46 @@ extension SwiftBigDecimal {
             internalInteger *= newInteger
             figure = maxFigure
         }
-        
+
         let newInteger = internalInteger - rhs.internalInteger
         let newDecimal = SwiftBigDecimal(bigInteger: newInteger, figure: Int(maxFigure))
-        
+
         return newDecimal
     }
 }
 
-extension SwiftBigDecimal {
-    func add(_ rhs: Int) -> SwiftBigDecimal {
+public extension SwiftBigDecimal {
+    public func add(_ rhs: Int) -> SwiftBigDecimal {
         return add(SwiftBigDecimal(string: String(rhs)))
     }
-    
-    func divide(_ rhs: Int) -> SwiftBigDecimal {
+
+    public func divide(_ rhs: Int) -> SwiftBigDecimal {
         return divide(SwiftBigDecimal(string: String(rhs)))
     }
-    
-    func multiply(_ rhs: Int) -> SwiftBigDecimal {
+
+    public func multiply(_ rhs: Int) -> SwiftBigDecimal {
         return multiply(SwiftBigDecimal(string: String(rhs)))
     }
-    
-    func subtract(_ rhs: Int) -> SwiftBigDecimal {
+
+    public func subtract(_ rhs: Int) -> SwiftBigDecimal {
         return subtract(SwiftBigDecimal(string: String(rhs)))
     }
 }
 
-extension SwiftBigDecimal {
-    func add(_ rhs: Double) -> SwiftBigDecimal {
+public extension SwiftBigDecimal {
+    public func add(_ rhs: Double) -> SwiftBigDecimal {
         return add(SwiftBigDecimal(string: String(rhs)))
     }
-    
-    func divide(_ rhs: Double) -> SwiftBigDecimal {
+
+    public func divide(_ rhs: Double) -> SwiftBigDecimal {
         return divide(SwiftBigDecimal(string: String(rhs)))
     }
-    
-    func multiply(_ rhs: Double) -> SwiftBigDecimal {
+
+    public func multiply(_ rhs: Double) -> SwiftBigDecimal {
         return multiply(SwiftBigDecimal(string: String(rhs)))
     }
-    
-    func subtract(_ rhs: Double) -> SwiftBigDecimal {
+
+    public func subtract(_ rhs: Double) -> SwiftBigDecimal {
         return subtract(SwiftBigDecimal(string: String(rhs)))
     }
 }

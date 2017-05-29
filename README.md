@@ -20,10 +20,5 @@ print(fib(SwiftBigInteger(int: 100000)))
 ```
 Install:
 
-1. Copy SwiftBigInt/LibTomMath into your project (be sure to add it to your targets)
-2. Copy SwiftBigInt/SwiftBigInteger and/or SwiftBigDecimal into your project (be sure to add it your targets)
-3. Create a bridging header and add these lines to it. (Or add them to an existing header)
-
-```c
-#import "tommath.h"
-```
+- Add `.Package("https://github.com/nuclearace/SwiftBigInteger", majorVersion: 1)` as a dependency.
+- Add `-Xlinker -L/usr/local/lib -Xlinker -lopus -Xcc -I/usr/local/include` to your build command.
