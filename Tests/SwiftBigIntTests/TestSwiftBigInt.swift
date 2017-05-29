@@ -23,6 +23,12 @@ class TestSwiftBigDecimal : XCTestCase {
     func testπ() {
         XCTAssertEqual(String(Double.pi), BigDecimal(double: Double.pi).stringValue)
     }
+
+    func testDivision() {
+        let result = BigDecimal(string: "7638246328746837234342342342332") / 3.3
+
+        XCTAssertTrue(result.stringValue.hasPrefix("2314620099620253"), "It should correctly divide")
+    }
 }
 
 func fib(_ n: BigInteger) -> BigInteger {

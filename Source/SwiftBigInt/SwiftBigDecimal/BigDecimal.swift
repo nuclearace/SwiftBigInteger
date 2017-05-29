@@ -26,7 +26,7 @@ import Foundation
 import LibTomMathSwift
 
 public class BigDecimal: CustomStringConvertible {
-    var figure: UInt = 0
+    var figure = 0
     var internalInteger: BigInteger
 
     public var description: String {
@@ -55,7 +55,7 @@ public class BigDecimal: CustomStringConvertible {
     public init(string: String) {
         if string.contains(".") {
             let range = string.range(of: ".")!
-            figure = UInt(string[range.lowerBound..<string.characters.index(before: string.endIndex)].characters.count)
+            figure = Int(string[range.lowerBound..<string.characters.index(before: string.endIndex)].characters.count)
             internalInteger = BigInteger(string: string.replacingCharacters(in: range, with: ""))
         } else {
             internalInteger = BigInteger(string: string)
@@ -64,7 +64,7 @@ public class BigDecimal: CustomStringConvertible {
 
     public init(bigInteger: BigInteger, figure: Int) {
         internalInteger = bigInteger
-        self.figure = UInt(figure)
+        self.figure = Int(figure)
     }
 
     public convenience init(int: Int) {
@@ -78,7 +78,7 @@ public class BigDecimal: CustomStringConvertible {
 
 public extension BigDecimal {
     public func add(_ rhs: BigDecimal) -> BigDecimal {
-        var maxFigure: UInt = 0
+        var maxFigure = 0
 
         if figure >= rhs.figure {
             maxFigure = figure
@@ -103,7 +103,7 @@ public extension BigDecimal {
     }
 
     public func divide(_ rhs: BigDecimal) -> BigDecimal {
-        var totalFigure = Int(figure - rhs.figure)
+        var totalFigure = figure - rhs.figure
 
         if totalFigure < 0 {
             let exponent = -totalFigure
@@ -128,7 +128,7 @@ public extension BigDecimal {
     }
 
     public func subtract(_ rhs: BigDecimal) -> BigDecimal {
-        var maxFigure: UInt = 0
+        var maxFigure = 0
 
         if figure >= rhs.figure {
             maxFigure = figure
