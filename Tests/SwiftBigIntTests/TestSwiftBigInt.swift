@@ -13,6 +13,12 @@ class TestSwiftBigInteger : XCTestCase {
     }
 }
 
+class TestSwiftBigDecimal : XCTestCase {
+    func testπ() {
+        XCTAssertEqual(String(Double.pi), SwiftBigDecimal(double: Double.pi).stringValue)
+    }
+}
+
 func fib(_ n: SwiftBigInteger) -> SwiftBigInteger {
     if n < 2 {
         return n

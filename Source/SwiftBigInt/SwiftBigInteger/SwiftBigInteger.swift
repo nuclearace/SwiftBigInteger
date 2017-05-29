@@ -28,7 +28,7 @@ import LibTomMathSwift
 public class SwiftBigInteger : CustomStringConvertible, Equatable, Comparable {
     fileprivate var internalInt: mp_int
 
-    public  var description: String {
+    public var description: String {
         return stringValue
     }
 

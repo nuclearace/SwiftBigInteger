@@ -34,22 +34,21 @@ public class SwiftBigDecimal : CustomStringConvertible {
     }
 
     public var stringValue: String {
-        let string = internalInteger.stringValue
+        var string = internalInteger.stringValue
 
         if figure == 0 {
             return string
         } else {
-            let mutString = NSMutableString(string: string)
             var newFigure = string.characters.count - Int(figure)
 
             while newFigure <= 0 {
-                mutString.insert("0", at: 0)
+                string.insert("0", at: string.startIndex)
                 newFigure += 1
             }
 
-            mutString.insert(".", at: newFigure)
+            string.insert(".", at: string.index(string.startIndex, offsetBy: newFigure))
 
-            return mutString as String
+            return string
         }
     }
 
@@ -70,6 +69,10 @@ public class SwiftBigDecimal : CustomStringConvertible {
 
     public convenience init(int: Int) {
         self.init(string: String(int))
+    }
+
+    public convenience init(double: Double) {
+        self.init(string: String(double))
     }
 }
 
